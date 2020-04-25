@@ -40,12 +40,12 @@ namespace geometry
 
         // nqma nujda ot getters: unasledqvame ot Point
     };
-
-    // double * Vector moje da bude samo non-member
-    Vector operator*(double a, const Vector& vector);
-
-    // nqma nujda da predefiniraame << i >>, tai
-    // kato mojem da polzvame tezi za Point nagotovo
 }
+
+// double * Vector moje da bude samo non-member
+geometry::Vector operator*(double a, const geometry::Vector& vector);
+
+// nqma nujda da predefiniraame << i >>, tai
+// kato mojem da polzvame tezi za Point nagotovo
 
 #endif

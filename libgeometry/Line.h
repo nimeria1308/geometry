@@ -52,11 +52,10 @@ namespace geometry
         // Point s koito e inicializirana e offset-a ot nulata
         Vector directionVector;
     };
-
-    // triabva ni non-member za da proverqvame + vector
-    bool operator+(const Point& point, const Line& line);
 }
 
+// triabva ni non-member za da proverqvame + vector
+bool operator+(const geometry::Point& point, const geometry::Line& line);
 std::ostream& operator<<(std::ostream& out, const geometry::Line& line);
 std::istream& operator>>(std::istream& in, geometry::Line& line);
 
