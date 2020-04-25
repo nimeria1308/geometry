@@ -16,6 +16,8 @@ namespace geometry
 
         // methods
 
+        const Point& start() const;
+
         // direction
         const Vector& direction() const;
 

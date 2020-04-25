@@ -20,6 +20,11 @@ Line::Line(const Point& p1, const Point& p2)
 
 // methods
 
+const Point& Line::start() const
+{
+    return *this;
+}
+
 // direction
 const Vector& Line::direction() const
 {
