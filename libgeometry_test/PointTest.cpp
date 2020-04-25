@@ -25,6 +25,18 @@ namespace geometry
                 Assert::AreEqual(-9.12, p.getY());
                 Assert::AreEqual(3.1415, p.getZ());
             }
+
+            TEST_METHOD(TestEquals)
+            {
+                Point a(10.0, 20.0, 30.0);
+                Point b(10.0, 20.0, 30.0);
+                Point c(10.0, 20.0, 30.1);
+
+                Assert::IsTrue(a == Point(a));
+                Assert::IsTrue(a == b);
+                Assert::IsFalse(a == c);
+                Assert::IsFalse(Point(a) == c);
+            }
         };
     }
 }

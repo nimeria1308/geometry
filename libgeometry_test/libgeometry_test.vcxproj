@@ -160,7 +160,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="LineTest.cpp" />
     <ClCompile Include="PointTest.cpp" />
+    <ClCompile Include="SegmentTest.cpp" />
+    <ClCompile Include="TriangleTest.cpp" />
+    <ClCompile Include="VectorTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\libgeometry\libgeometry.vcxproj">
