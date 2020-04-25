@@ -2,9 +2,16 @@
 #define GEOMETRY_VECTOR_H
 
 #include "Point.h"
+#include "Exception.h"
 
 namespace geometry
 {
+    class VectorLengthException : public GeometryException {
+    public:
+        VectorLengthException();
+        VectorLengthException(const std::string& what);
+    };
+
     class Vector : public Point
     {
     public:

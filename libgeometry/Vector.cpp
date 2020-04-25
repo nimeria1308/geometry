@@ -5,6 +5,16 @@
 using namespace geometry;
 using namespace std;
 
+// exception
+VectorLengthException::VectorLengthException()
+{
+}
+
+VectorLengthException::VectorLengthException(const string& what)
+    : GeometryException(what)
+{
+}
+
 // ctr
 Vector::Vector()
 {
@@ -40,6 +50,10 @@ Vector Vector::direction() const
 {
     double len = length();
 
+    if (len == 0) {
+        throw VectorLengthException();
+    }
+
     return Vector(x / len, y / len, z / len);
 }
 
@@ -50,12 +64,21 @@ bool Vector::isZero() const
 
 bool Vector::isParallel(const Vector& other) const
 {
+    if (isZero() || other.isZero()) {
+        throw VectorLengthException();
+    }
+
     // TODO
+
     return true;
 }
 
 bool Vector::isPerpendicular(const Vector& other) const
 {
+    if (isZero() || other.isZero()) {
+        throw VectorLengthException();
+    }
+
     // TODO
     return true;
 }
