@@ -22,7 +22,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{1C7423DA-113F-4483-A56B-4327C02FD5C7}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>libgeometrytest</RootNamespace>
+    <RootNamespace>geometry::test</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ProjectSubType>NativeUnitTestProject</ProjectSubType>
   </PropertyGroup>

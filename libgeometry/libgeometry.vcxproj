@@ -39,7 +39,7 @@
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{E1D68B72-06C7-42FE-A8AD-F0F392CD1707}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>libgeometry</RootNamespace>
+    <RootNamespace>geometry</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
