@@ -24,7 +24,7 @@ namespace geometry
         double getY() const;
         double getZ() const;
 
-    private:
+    protected:
         // fields
         double x;
         double y;
