@@ -15,7 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="libgeometry_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
