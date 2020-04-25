@@ -2,6 +2,7 @@
 
 #include "Point.h"
 #include "Vector.h"
+#include "Line.h"
 
 using namespace geometry;
 using namespace std;
@@ -19,4 +20,8 @@ int main()
 
     Vector v2(p, Point(0.5, 1, 2));
     cout << "vector2: " << v2 << endl;
+
+    Line l(p, v2);
+
+    cout << "line: " << l << endl;
 }
