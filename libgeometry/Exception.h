@@ -16,6 +16,12 @@ namespace geometry
     private:
         std::string message;
     };
+
+    class EqualPointException : public GeometryException {
+    public:
+        EqualPointException();
+        EqualPointException(const std::string& what);
+    };
 }
 
 #endif

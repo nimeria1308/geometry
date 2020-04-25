@@ -16,3 +16,12 @@ const char* GeometryException::what() const throw()
 {
     return message.c_str();
 }
+
+EqualPointException::EqualPointException()
+{
+}
+
+EqualPointException::EqualPointException(const string& what)
+    : GeometryException(what)
+{
+}
