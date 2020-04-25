@@ -1,3 +1,5 @@
+#include <cmath>
+
 #include "Vector.h"
 
 using namespace geometry;
@@ -31,14 +33,14 @@ Vector::Vector(const Point& p1, const Point& p2)
 // methods
 double Vector::length() const
 {
-	// TODO
-	return 0;
+	return sqrt(x * x + y * y + z * z);
 }
 
 Vector Vector::direction() const
 {
-	// TODO
-	return Vector();
+	double len = length();
+
+	return Vector(x / len, y / len, z / len);
 }
 
 bool Vector::isZero() const
