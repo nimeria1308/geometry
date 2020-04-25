@@ -21,10 +21,11 @@ Vector::Vector(const Point& point)
 Vector::Vector(const Point& p1, const Point& p2)
 {
 	// mojem da polzvame nagotovo:
-	// suzdavane na vector ot tochka
-	// izvajdane na vectori
-	// default copy-assignment operator
-	*this = Vector(p1) - Vector(p2);
+	// * suzdavane na vector ot tochka
+	// * izvajdane na vectori: p2 - p1, poneje iskame da zapazim
+	//   posokata, no da zapochva ot nulata
+	// * default copy-assignment operator
+	*this = Vector(p2) - Vector(p1);
 }
 
 // methods
