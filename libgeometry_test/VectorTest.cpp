@@ -186,13 +186,13 @@ namespace geometry
 
             TEST_METHOD(TestMixedProduct)
             {
-                Vector v1(1, 2, 3);
+                Vector v1(1, 4, 8);
                 Vector v2(3, 4, 5);
                 Vector v3(5, 6, 7);
 
                 // v1 * (v2 ^ v3)
-                // (1,2,3) * (-2, 4, -2) = 0
-                Assert::AreEqual(0.0, v1(v2, v3));
+                // (1, 4, 8) * (-2, 4, -2) = 0
+                Assert::AreEqual(-2.0, v1(v2, v3));
             }
 
             TEST_METHOD(TestStreams)
