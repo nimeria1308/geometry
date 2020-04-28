@@ -36,13 +36,13 @@ namespace geometry
         Vector operator-(const Vector& other) const;
         Vector operator*(double a) const;
 
-        // scalar product
+        // scalar (dot) product
         double operator*(const Vector& other) const;
 
-        // vector product
+        // vector (cross) product
         Vector operator^(const Vector& other) const;
 
-        // mixed product
+        // scalar triple (mixed) product
         double operator()(const Vector& a, const Vector& b);
 
         // nqma nujda ot getters: unasledqvame ot Point
