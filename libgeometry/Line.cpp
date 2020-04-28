@@ -26,7 +26,7 @@ const Point& Line::start() const
 }
 
 // direction
-const Vector& Line::direction() const
+Vector Line::direction() const
 {
     return directionVector;
 }

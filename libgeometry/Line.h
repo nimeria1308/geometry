@@ -19,7 +19,7 @@ namespace geometry
         const Point& start() const;
 
         // direction
-        const Vector& direction() const;
+        virtual Vector direction() const;
 
         // normal vector
         Vector normal() const;

@@ -26,7 +26,7 @@ namespace geometry
         double length() const;
 
         // realno vrashta normalizirania vector
-        Vector direction() const;
+        virtual Vector direction() const;
         bool isZero() const;
         bool isParallel(const Vector& other) const;
         bool isPerpendicular(const Vector& other) const;
