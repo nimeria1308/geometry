@@ -41,7 +41,7 @@ namespace geometry
         // dali se presichat
         bool operator&&(const Line& other) const;
 
-        // dali sa krastosani
+        // dali sa krastosani (ne lejat na edna ravnina)
         bool operator!=(const Line& other) const;
 
         // dali sa perpendikuliarni
@@ -56,7 +56,7 @@ namespace geometry
     };
 }
 
-// triabva ni non-member za da proverqvame + vector
+// triabva ni non-member za da proverqvame point + line
 bool operator+(const geometry::Point& point, const geometry::Line& line);
 std::ostream& operator<<(std::ostream& out, const geometry::Line& line);
 std::istream& operator>>(std::istream& in, geometry::Line& line);
