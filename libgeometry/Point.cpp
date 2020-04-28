@@ -1,5 +1,8 @@
 #include "Point.h"
 
+#include <iomanip>
+#include <limits>
+
 using namespace geometry;
 using namespace std;
 
@@ -37,7 +40,8 @@ double Point::getZ() const
 
 ostream& operator<<(ostream& out, const Point& point)
 {
-    out << point.getX() << " " << point.getY() << " " << point.getZ();
+    out << setprecision(numeric_limits<long double>::digits10 + 1)
+        << point.getX() << " " << point.getY() << " " << point.getZ();
 
     return out;
 }
