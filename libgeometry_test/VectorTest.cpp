@@ -56,10 +56,11 @@ namespace geometry
                 Vector b(10.0, 20.0, 30.0);
                 Vector c(10.0, 20.0, 30.1);
 
-                Assert::IsTrue(a == Point(a));
+                Assert::IsTrue(a == a);
                 Assert::IsTrue(a == b);
+                Assert::IsTrue(b == a);
                 Assert::IsFalse(a == c);
-                Assert::IsFalse(Point(a) == c);
+                Assert::IsFalse(c == a);
             }
 
             TEST_METHOD(TestLength)
