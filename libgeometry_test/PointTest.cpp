@@ -1,6 +1,8 @@
 #include "CppUnitTest.h"
 #include "Point.h"
 
+#include <sstream>
+
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 using namespace std;
 
@@ -36,6 +38,21 @@ namespace geometry
                 Assert::IsTrue(a == b);
                 Assert::IsFalse(a == c);
                 Assert::IsFalse(Point(a) == c);
+            }
+
+            TEST_METHOD(TestStreams)
+            {
+                Point p1(10, -7.12, 3.1415);
+                Point p2(40, -1.13, 5.05);
+                stringstream stream;
+                stream << p1 << " " << p2;
+
+                Point p1_read;
+                Point p2_read;
+                stream >> p1_read >> p2_read;
+
+                Assert::IsTrue(p1 == p1_read);
+                Assert::IsTrue(p2 == p2_read);
             }
         };
     }
