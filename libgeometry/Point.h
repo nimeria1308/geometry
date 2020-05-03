@@ -24,11 +24,19 @@ namespace geometry
         double getY() const;
         double getZ() const;
 
+        // set comparison precion
+        static double getPrecision();
+        static void setPrecision(double preciosion);
+
+        static const double DEFAULT_PRECISION;
+
     protected:
         // fields
         double x;
         double y;
         double z;
+
+        static double sPrecision;
     };
 }
 

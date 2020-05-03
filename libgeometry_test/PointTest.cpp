@@ -43,6 +43,18 @@ namespace geometry
                 Assert::IsFalse(Point(a) == c);
             }
 
+            TEST_METHOD(TestPrecision)
+            {
+                double p_under = Point::getPrecision() / 10.0;
+                double p_over = Point::getPrecision() * 10;
+                Point a(10, 20, 30);
+                Point b(10 + p_under, 20 + p_under, 30 + p_under);
+                Point c(10 + p_over, 20 + p_over, 30 + p_over);
+
+                Assert::IsTrue(a == b);
+                Assert::IsFalse(a == c);
+            }
+
             TEST_METHOD(TestStreams)
             {
                 Point p1(10, -7.12, 3.1415);
