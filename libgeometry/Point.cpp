@@ -20,9 +20,9 @@ Point::Point(double x, double y, double z)
 // operators
 bool Point::operator==(const Point& other) const
 {
-    return (abs(x - other.x) <= Point::sPrecision)
-        && (abs(y - other.y) <= Point::sPrecision)
-        && (abs(z - other.z) <= Point::sPrecision);
+    return (abs(x - other.x) <= getPrecision())
+        && (abs(y - other.y) <= getPrecision())
+        && (abs(z - other.z) <= getPrecision());
 }
 
 double Point::getX() const
@@ -38,20 +38,6 @@ double Point::getY() const
 double Point::getZ() const
 {
     return z;
-}
-
-const double Point::DEFAULT_PRECISION = 0.001;
-
-double Point::sPrecision = Point::DEFAULT_PRECISION;
-
-double Point::getPrecision()
-{
-    return Point::sPrecision;
-}
-
-void Point::setPrecision(double precision)
-{
-    Point::sPrecision = precision;
 }
 
 ostream& operator<<(ostream& out, const Point& point)

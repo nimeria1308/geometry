@@ -45,8 +45,8 @@ namespace geometry
 
             TEST_METHOD(TestPrecision)
             {
-                double p_under = Point::getPrecision() / 10.0;
-                double p_over = Point::getPrecision() * 10;
+                double p_under = getPrecision() / 10.0;
+                double p_over = getPrecision() * 10;
                 Point a(10, 20, 30);
                 Point b(10 + p_under, 20 + p_under, 30 + p_under);
                 Point c(10 + p_over, 20 + p_over, 30 + p_over);
