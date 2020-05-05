@@ -23,7 +23,7 @@ namespace geometry
         virtual ~Vector() { }
 
         // methods
-        double length() const;
+        virtual double length() const;
 
         // realno vrashta normalizirania vector
         virtual Vector direction() const;

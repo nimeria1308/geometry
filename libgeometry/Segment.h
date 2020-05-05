@@ -15,7 +15,7 @@ namespace geometry
         virtual ~Segment() { }
 
         // methods
-        double length() const;
+        virtual double length() const;
         Point middle() const;
 
         // operators
