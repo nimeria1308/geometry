@@ -82,12 +82,15 @@ namespace geometry
                 Vector v1(10, 0, 0);
                 Vector v2(3, 4, 0);
 
-                auto f = [] { Vector().direction(); };
-                Assert::ExpectException<VectorLengthException>(f);
-
                 Assert::IsTrue(identity == identity.direction());
                 Assert::IsTrue(identity.direction() == v1.direction());
                 Assert::IsTrue(Vector(0.6, 0.8, 0) == v2.direction());
+            }
+
+            TEST_METHOD(TestDirectionZeroVector)
+            {
+                auto f = [] { Vector().direction(); };
+                Assert::ExpectException<VectorLengthException>(f);
             }
 
             TEST_METHOD(TestIsZero)
@@ -105,16 +108,21 @@ namespace geometry
                 Vector v2(4, 0, 0);
                 Vector v3(1, 1, 0);
 
+                Assert::IsTrue(v1.isParallel(v2));
+                Assert::IsTrue(v2.isParallel(v1));
+                Assert::IsFalse(v1.isParallel(v3));
+                Assert::IsFalse(v3.isParallel(v1));
+            }
+
+            TEST_METHOD(TestIsParallelZeroVector)
+            {
+                Vector v1(1, 0, 0);
+
                 auto f1 = [v1] { Vector().isParallel(v1); };
                 Assert::ExpectException<VectorLengthException>(f1);
 
                 auto f2 = [v1] { v1.isParallel(Vector()); };
                 Assert::ExpectException<VectorLengthException>(f2);
-
-                Assert::IsTrue(v1.isParallel(v2));
-                Assert::IsTrue(v2.isParallel(v1));
-                Assert::IsFalse(v1.isParallel(v3));
-                Assert::IsFalse(v3.isParallel(v1));
             }
 
             TEST_METHOD(TestIsPerpendicular)
@@ -123,16 +131,22 @@ namespace geometry
                 Vector v2(0, 1, 0);
                 Vector v3(4, 0, 0);
 
+                Assert::IsTrue(v1.isPerpendicular(v2));
+                Assert::IsTrue(v2.isPerpendicular(v1));
+                Assert::IsFalse(v1.isPerpendicular(v3));
+                Assert::IsFalse(v3.isPerpendicular(v1));
+            }
+
+            TEST_METHOD(TestIsPerpendicularZeroVector)
+            {
+                Vector v1(1, 0, 0);
+
                 auto f1 = [v1] { Vector().isPerpendicular(v1); };
                 Assert::ExpectException<VectorLengthException>(f1);
 
                 auto f2 = [v1] { v1.isPerpendicular(Vector()); };
                 Assert::ExpectException<VectorLengthException>(f2);
 
-                Assert::IsTrue(v1.isPerpendicular(v2));
-                Assert::IsTrue(v2.isPerpendicular(v1));
-                Assert::IsFalse(v1.isPerpendicular(v3));
-                Assert::IsFalse(v3.isPerpendicular(v1));
             }
 
             TEST_METHOD(TestAdditionVector)
