@@ -114,12 +114,12 @@ namespace geometry
                 stringstream stream;
                 stream << s1 << " " << s2;
 
-                Segment l1_read;
-                Segment l2_read;
-                stream >> l1_read >> l2_read;
+                Segment s1_read;
+                Segment s2_read;
+                stream >> s1_read >> s2_read;
 
-                Assert::IsTrue(s1 == l1_read);
-                Assert::IsTrue(s2 == l2_read);
+                Assert::IsTrue(s1 == s1_read);
+                Assert::IsTrue(s2 == s2_read);
             }
         };
     }
