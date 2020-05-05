@@ -19,6 +19,7 @@ namespace geometry
         Point middle() const;
 
         // operators
+        bool operator==(const Segment& segment) const;
 
         // proverqva dali leji na otsechkata
         bool operator==(const Point& point) const;

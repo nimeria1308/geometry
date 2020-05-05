@@ -29,6 +29,12 @@ Point Segment::middle() const
 
 // operators
 
+bool Segment::operator==(const Segment& other) const
+{
+    return start() == other.start()
+        && end() == other.end();
+}
+
 // proverqva dali leji na otsechkata
 bool Segment::operator==(const Point& point) const
 {
