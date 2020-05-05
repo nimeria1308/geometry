@@ -35,6 +35,9 @@ namespace geometry
         double perimeter() const;
         Point medicentre() const;
 
+        // operators
+        bool operator==(const Triangle& triangle) const;
+
         // getters
         const Point& getA() const;
         const Point& getB() const;
@@ -55,6 +58,7 @@ bool operator>(const geometry::Point& point, const geometry::Triangle& triangle)
 
 // tochkata leji varhu stranite na triagalnika
 bool operator==(const geometry::Point& point, const geometry::Triangle& triangle);
+bool operator==(const geometry::Triangle& triangle, const geometry::Point& point);
 
 std::ostream& operator<<(std::ostream& out, const geometry::Triangle& triangle);
 std::istream& operator>>(std::istream& in, geometry::Triangle& triangle);

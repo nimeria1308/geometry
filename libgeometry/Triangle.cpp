@@ -64,23 +64,39 @@ const Point& Triangle::getC() const
     return c;
 }
 // operators
+bool Triangle::operator==(const Triangle& other) const
+{
+    return a == other.a
+        && b == other.b
+        && c == other.c;
+}
 
 // tochkata leji vav vatreshnostta na triagalnika
-bool operator<(const geometry::Point& point, const Triangle& triangle)
+bool operator<(const Point& point, const Triangle& triangle)
 {
     // TODO
     return true;
 }
 
 // tochkata leji izvan triagalnika
-bool operator>(const geometry::Point& point, const Triangle& triangle)
+bool operator>(const Point& point, const Triangle& triangle)
 {
     // TODO
     return true;
 }
 
 // tochkata leji varhu stranite na triagalnika
-bool operator==(const geometry::Point& point, const Triangle& triangle);
+bool operator==(const Point& point, const Triangle& triangle)
+{
+    // TODO
+    return true;
+}
+
+// tochkata leji varhu stranite na triagalnika
+bool operator==(const Triangle& triangle, const Point& point)
+{
+    return point == triangle;
+}
 
 ostream& operator<<(ostream& out, const Triangle& triangle)
 {
