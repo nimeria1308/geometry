@@ -29,7 +29,7 @@ namespace geometry
         virtual Vector direction() const;
         bool isZero() const;
         bool isParallel(const Vector& other) const;
-        bool isPerpendicular(const Vector& other) const;
+        bool isOrthogonal(const Vector& other) const;
 
         // operators
         Vector operator+(const Vector& other) const;

@@ -125,26 +125,27 @@ namespace geometry
                 Assert::ExpectException<VectorLengthException>(f2);
             }
 
-            TEST_METHOD(TestIsPerpendicular)
+            TEST_METHOD(TestIsOrthogonal)
             {
                 Vector v1(1, 0, 0);
                 Vector v2(0, 1, 0);
                 Vector v3(4, 0, 0);
 
-                Assert::IsTrue(v1.isPerpendicular(v2));
-                Assert::IsTrue(v2.isPerpendicular(v1));
-                Assert::IsFalse(v1.isPerpendicular(v3));
-                Assert::IsFalse(v3.isPerpendicular(v1));
+                Assert::IsTrue(v1.isOrthogonal(v2));
+                Assert::IsTrue(v2.isOrthogonal(v1));
+
+                Assert::IsFalse(v1.isOrthogonal(v3));
+                Assert::IsFalse(v3.isOrthogonal(v1));
             }
 
             TEST_METHOD(TestIsPerpendicularZeroVector)
             {
                 Vector v1(1, 0, 0);
 
-                auto f1 = [v1] { Vector().isPerpendicular(v1); };
+                auto f1 = [v1] { Vector().isOrthogonal(v1); };
                 Assert::ExpectException<VectorLengthException>(f1);
 
-                auto f2 = [v1] { v1.isPerpendicular(Vector()); };
+                auto f2 = [v1] { v1.isOrthogonal(Vector()); };
                 Assert::ExpectException<VectorLengthException>(f2);
 
             }

@@ -73,7 +73,7 @@ bool Vector::isParallel(const Vector& other) const
     return true;
 }
 
-bool Vector::isPerpendicular(const Vector& other) const
+bool Vector::isOrthogonal(const Vector& other) const
 {
     if (isZero() || other.isZero()) {
         throw VectorLengthException();
