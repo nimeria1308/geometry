@@ -175,6 +175,65 @@ namespace geometry
                 Assert::IsTrue(centroid == t.centroid());
             }
 
+            TEST_METHOD(TestPointInsideTriangle)
+            {
+                // sides: 3, 4, 5
+                // angles: 90, 53, 37
+                Triangle t(Point(), Point(3, 0, 0), Point(0, 4, 0));
+                Point p = t.centroid();
+
+                // is inside
+                Assert::IsTrue(p < t);
+                Assert::IsTrue(t > p);
+
+                // is not outside
+                Assert::IsFalse(p > t);
+                Assert::IsFalse(t < p);
+
+                // is not on the triangle
+                Assert::IsFalse(t == p);
+                Assert::IsFalse(p == t);
+            }
+
+            TEST_METHOD(TestPointOutsideTriangle)
+            {
+                // sides: 3, 4, 5
+                // angles: 90, 53, 37
+                Triangle t(Point(), Point(3, 0, 0), Point(0, 4, 0));
+                Point p(5, 5, 0);
+
+                // is outside
+                Assert::IsTrue(p > t);
+                Assert::IsTrue(t < p);
+
+                // is not inside
+                Assert::IsFalse(p < t);
+                Assert::IsFalse(t > p);
+
+                // is not on the triangle
+                Assert::IsFalse(t == p);
+                Assert::IsFalse(p == t);
+            }
+
+            TEST_METHOD(TestPointOnTriangle)
+            {
+                // sides: 3, 4, 5
+                // angles: 90, 53, 37
+                Triangle t(Point(), Point(3, 0, 0), Point(0, 4, 0));
+                Point p(sqrt(3), 0, 0);
+
+                // is on the edge
+                Assert::IsTrue(t == p);
+                Assert::IsTrue(p == t);
+
+                // is not inside
+                Assert::IsFalse(p < t);
+                Assert::IsFalse(t > p);
+
+                // is not outside
+                Assert::IsFalse(p > t);
+                Assert::IsFalse(t < p);
+            }
             TEST_METHOD(TestStreams)
             {
                 Point a(1.0, 2.0, 3.0);
