@@ -55,9 +55,11 @@ namespace geometry
 
 // tochkata leji vav vatreshnostta na triagalnika
 bool operator<(const geometry::Point& point, const geometry::Triangle& triangle);
+bool operator>(const geometry::Triangle& triangle, const geometry::Point& point);
 
 // tochkata leji izvan triagalnika
 bool operator>(const geometry::Point& point, const geometry::Triangle& triangle);
+bool operator<(const geometry::Triangle& triangle, const geometry::Point& point);
 
 // tochkata leji varhu stranite na triagalnika
 bool operator==(const geometry::Point& point, const geometry::Triangle& triangle);

@@ -78,11 +78,21 @@ bool operator<(const Point& point, const Triangle& triangle)
     return true;
 }
 
+bool operator>(const Triangle& triangle, const Point& point)
+{
+    return point < triangle;
+}
+
 // tochkata leji izvan triagalnika
 bool operator>(const Point& point, const Triangle& triangle)
 {
     // TODO
     return true;
+}
+
+bool operator<(const Triangle& triangle, const Point& point)
+{
+    return point > triangle;
 }
 
 // tochkata leji varhu stranite na triagalnika
