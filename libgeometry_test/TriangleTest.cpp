@@ -150,6 +150,31 @@ namespace geometry
                     TRIANGLE_OBTUSE, TRIANGLE_SCALENE);
             }
 
+            TEST_METHOD(TestPerimeter)
+            {
+                // sides: 3, 4, 5
+                // angles: 90, 53, 37
+                Triangle t(Point(), Point(3, 0, 0), Point(0, 4, 0));
+                Assert::AreEqual(12.0, t.perimeter());
+            }
+
+            TEST_METHOD(TestArea)
+            {
+                // sides: 3, 4, 5
+                // angles: 90, 53, 37
+                Triangle t(Point(), Point(3, 0, 0), Point(0, 4, 0));
+                Assert::AreEqual(6.0, t.area());
+            }
+
+            TEST_METHOD(TestCentroid)
+            {
+                // sides: 3, 4, 5
+                // angles: 90, 53, 37
+                Triangle t(Point(), Point(3, 0, 0), Point(0, 4, 0));
+                Point centroid(1, 4.0 / 3.0, 0);
+                Assert::IsTrue(centroid == t.centroid());
+            }
+
             TEST_METHOD(TestStreams)
             {
                 Point a(1.0, 2.0, 3.0);
