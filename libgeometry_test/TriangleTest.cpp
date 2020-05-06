@@ -79,6 +79,77 @@ namespace geometry
                 Assert::IsFalse(t3 == t1);
             }
 
+            static void assertTriangle(const Triangle& triangle, TriangleTypeAngle angleType, TriangleTypeSide sideType)
+            {
+                Assert::AreEqual((int)angleType, (int)triangle.getTypeByAngle());
+                Assert::AreEqual((int)sideType, (int)triangle.getTypeBySide());
+            }
+
+            // https://www.triangle-calculator.com/?what=vc
+
+            TEST_METHOD(TestTypeRightScalene)
+            {
+                // sides: 3, 4, 5
+                // angles: 90, 53, 37
+                assertTriangle(
+                    Triangle(Point(), Point(3, 0, 0), Point(0, 4, 0)),
+                    TRIANGLE_RIGHT, TRIANGLE_SCALENE);
+            }
+
+            TEST_METHOD(TestTypeRightIsosceles)
+            {
+                // sides: 1, 1, sqrt(2)
+                // angles: 90, 45, 45
+                assertTriangle(
+                    Triangle(Point(), Point(1, 0, 0), Point(0, 1, 0)),
+                    TRIANGLE_RIGHT, TRIANGLE_ISOSCELES);
+            }
+
+            TEST_METHOD(TestTypeEquilateral)
+            {
+                // sides: 2, 2, 2
+                // angles: 60, 60, 60
+                assertTriangle(
+                    Triangle(Point(-1, 0, 0), Point(1, 0, 0), Point(0, 1 * sqrt(3), 0)),
+                    TRIANGLE_ACUTE, TRIANGLE_EQUILATERAL);
+            }
+
+            TEST_METHOD(TestTypeAcuteIsosceles)
+            {
+                // sides: 2, sqrt(5), sqrt(5)
+                // angles: 54, 63, 63
+                assertTriangle(
+                    Triangle(Point(-1, 0, 0), Point(1, 0, 0), Point(0, 2, 0)),
+                    TRIANGLE_ACUTE, TRIANGLE_ISOSCELES);
+            }
+
+            TEST_METHOD(TestTypeAcuteScalene)
+            {
+                // sides: 2 * sqrt(2), sqrt(5), 3
+                // angles: 63, 45, 72
+                assertTriangle(
+                    Triangle(Point(-1, 0, 0), Point(2, 0, 0), Point(0, 2, 0)),
+                    TRIANGLE_ACUTE, TRIANGLE_SCALENE);
+            }
+
+            TEST_METHOD(TestTypeObtuseIsosceles)
+            {
+                // sides: 2, 2, 2*sqrt(4)
+                // angles: 30, 30, 120
+                assertTriangle(
+                    Triangle(Point(-sqrt(3), 0, 0), Point(sqrt(3), 0, 0), Point(0, 1, 0)),
+                    TRIANGLE_OBTUSE, TRIANGLE_ISOSCELES);
+            }
+
+            TEST_METHOD(TestTypeObtuseScalene)
+            {
+                // sides: sqrt(85), sqrt(5), 10
+                // angles: 63, 13, 104
+                assertTriangle(
+                    Triangle(Point(-1, 0, 0), Point(9, 0, 0), Point(0, 2, 0)),
+                    TRIANGLE_OBTUSE, TRIANGLE_SCALENE);
+            }
+
             TEST_METHOD(TestStreams)
             {
                 Point a(1.0, 2.0, 3.0);
