@@ -35,7 +35,8 @@ namespace geometry
         TriangleTypeAngle getTypeByAngle() const;
         double area() const;
         double perimeter() const;
-        Point medicentre() const;
+        // medicenter
+        Point centroid() const;
 
         // operators
         bool operator==(const Triangle& triangle) const;

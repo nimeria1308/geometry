@@ -42,7 +42,7 @@ double Triangle::perimeter() const
     return 0;
 }
 
-Point Triangle::medicentre() const
+Point Triangle::centroid() const
 {
     // TODO
     return Point();
