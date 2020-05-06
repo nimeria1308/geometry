@@ -21,13 +21,13 @@ Triangle::Triangle(const Point& a, const Point& b, const Point& c)
 TriangleTypeSide Triangle::getTypeBySide() const
 {
     // TODO
-    return TRIANGLE_SCALENE;
+    return TriangleTypeSide::TRIANGLE_SIDES_UNKNOWN;
 }
 
 TriangleTypeAngle Triangle::getTypeByAngle() const
 {
     // TODO
-    return TRIANGLE_ACUTE;
+    return TriangleTypeAngle::TRIANGLE_ANGLES_UNKNOWN;
 }
 
 double Triangle::area() const

@@ -10,14 +10,16 @@
 namespace geometry
 {
     enum TriangleTypeSide {
-        TRINAGLE_EQUILATERAL,	// ravnostranen: 3 ravni strani
-        TRINAGLE_ISOSCELES,		// ravnobedren: 2 ravni strani
+        TRIANGLE_SIDES_UNKNOWN,
+        TRIANGLE_EQUILATERAL,	// ravnostranen: 3 ravni strani
+        TRIANGLE_ISOSCELES,		// ravnobedren: 2 ravni strani
         TRIANGLE_SCALENE,		// nqma ravni strani
     };
 
     enum TriangleTypeAngle {
+        TRIANGLE_ANGLES_UNKNOWN,
         TRIANGLE_RIGHT,  // prav: ima 1 prav (=90) agal
-        TRINAGLE_OBTUSE, // tap: ima 1 tap (>90) agal
+        TRIANGLE_OBTUSE, // tap: ima 1 tap (>90) agal
         TRIANGLE_ACUTE,  // ostar: ima 3 ostri (<90) agala
     };
 
