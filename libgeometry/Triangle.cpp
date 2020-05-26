@@ -66,6 +66,7 @@ const Point& Triangle::getC() const
 // operators
 bool Triangle::operator==(const Triangle& other) const
 {
+    // TODO: Should compare all combinations
     return a == other.a
         && b == other.b
         && c == other.c;
