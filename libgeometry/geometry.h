@@ -6,7 +6,7 @@ namespace geometry
     extern const double DEFAULT_PRECISION;
 
     double getPrecision();
-    void setPrecision(double preciosion);
+    void setPrecision(double precision);
 }
 
 #endif

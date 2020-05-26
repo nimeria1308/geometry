@@ -4,15 +4,15 @@ namespace geometry {
 
     const double DEFAULT_PRECISION = 0.001;
 
-    static double precision = DEFAULT_PRECISION;
+    static double gPrecision = DEFAULT_PRECISION;
 
     double getPrecision()
     {
-        return precision;
+        return gPrecision;
     }
 
-    void setPrecision(double preciosion)
+    void setPrecision(double precision)
     {
-        precision = precision;
+        gPrecision = precision;
     }
 }
