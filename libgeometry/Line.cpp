@@ -1,92 +1,106 @@
 #include "Line.h"
+#include <cmath>
 
 using namespace geometry;
 using namespace std;
 
-// ctr
+// Default constructor.
 Line::Line()
 {
 }
 
+// Constructor with one vector and one point.
 Line::Line(const Point& point, const Vector& vector)
     : Vector(point), directionVector(vector.direction())
 {
 }
 
+// Constructor with two points.
 Line::Line(const Point& p1, const Point& p2)
     : Line(p1, Vector(p1, p2))
 {
 }
 
-// methods
+// Methods:
 
 const Point& Line::start() const
 {
     return *this;
 }
 
-// direction
+// Return the direction vector.
 Vector Line::direction() const
 {
     return directionVector;
 }
 
-// normal vector
+// Returns the normal vector.
 Vector Line::normal() const
 {
-    // TODO
-    return Vector();
+    if (getX() == 0) {
+        return Vector(1,0,0);
+    }
+    else if (getY() == 0) {
+        return Vector(0,1,0);
+    }
+    else if (getZ() == 0) {
+        return Vector(0,0,1);
+    }
+
+    //Flipping the original vector by 90 degrees.
+    return Vector(-getY(), getX(), getZ());
 }
 
-// angle in radians between the two lines
+// Return angle in radiants between two lines.
 double Line::angle(const Line& other) const
-{
-    // TODO
-    return 0;
+{   
+    return ((*this)*other) / (length() * other.length());
 }
 
-// operators
+// Operators:
 
-// tochka leji na prava
+// If point lies on line.
 bool Line::operator+(const Point& point) const
 {
-    // TODO
-    return true;
+    double A1 = (point.getX() - getX()) / directionVector.getX();
+    double A2 = (point.getY() - getY()) / directionVector.getY();
+    double A3 = (point.getZ() - getZ()) / directionVector.getZ();
+
+    return (A1 == A2 && A2 == A3);
 }
 
-// usporednost na pravi
+// If two lines are parallel.
 bool Line::operator||(const Line& other) const
 {
     return directionVector.isParallel(other.directionVector);
 }
 
-// dali suvpadat
+// If two lines are coincide.
 bool Line::operator==(const Line& other) const
 {
-    // sravnqvame gi kato tochki purvo i posle tehnite posoki
+    // Comparing coordinates of points and the angle of the vectors.
     return ((const Point&)*this) == ((const Point&)other)
         && (directionVector == other.directionVector);
 }
 
-// dali se presichat
+// If two lines intersect.
 bool Line::operator&&(const Line& other) const
 {
-    // TODO
-    return true;
+    return ((directionVector ^ other.directionVector) * (*this - other)
+        == 0);
 }
 
-// dali sa krastosani
+// If two lines are crossed.
 bool Line::operator!=(const Line& other) const
 {
-    // TODO
-    return true;
+    return (!(*this == other) 
+        && isParallel(other));
 }
 
-// dali sa perpendikuliarni
+// If two lines are perpendicular.
 bool Line::operator|(const Line& other) const
 {
-    // TODO
-    return true;
+    return (angle(other) == M_PI/2);
 }
 
 bool operator+(const Point& point, const Line& line)
@@ -94,7 +108,7 @@ bool operator+(const Point& point, const Line& line)
     return line + point;
 }
 
-// io
+// I/O
 
 ostream& operator<<(ostream& out, const Line& line)
 {
