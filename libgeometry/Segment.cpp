@@ -18,8 +18,20 @@ Segment::Segment(const Point& point1, const Point& point2)
 // methods
 double Segment::length() const
 {
-    // todo
-    return 0;
+
+    auto d = 0.0;
+
+    d = sqrt(pow((endPoint.getX() - x), 2) + pow((endPoint.getY() - y ), 2) + pow((endPoint.getZ() - z), 2));
+
+    if (d <= 0.0)
+    {
+        std::cerr << "The number is not positive, or it is exaclty ZERO!" << std::endl;
+    }
+
+    else if (d > 0.0)
+    {
+        return d;
+    }
 }
 
 Point Segment::middle() const
@@ -35,11 +47,42 @@ bool Segment::operator==(const Segment& other) const
         && end() == other.end();
 }
 
-// proverqva dali leji na otsechkata
+// proverqva dali leji na otsechkata --- !!!CHECK IF CORRECT!!!
+
 bool Segment::operator==(const Point& point) const
 {
-    // TODO
-    return true;
+
+    if (Line(start(),endPoint) + point)
+    {
+        if (this->x < endPoint.getX())
+        {
+            if (this->x < x < endPoint.getX() == true)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        else if (this->x > endPoint.getX())
+        {
+            if (endPoint.getX() < x < this->x)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    return false;
+
 }
 
 
