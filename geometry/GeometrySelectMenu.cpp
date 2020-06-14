@@ -43,7 +43,7 @@ void GeometrySelectMenu::show()
 
 		case 2:
 		{
-			VectorsMenu menu;
+			VectorsMenu menu(input, showPrompts);
 			menu.show();
 			break;
 		}
