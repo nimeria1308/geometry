@@ -18,6 +18,9 @@ namespace geometry {
 
 	protected:
 		double readNumber(const std::string& prompt);
+		Point readPoint(const std::string& message);
+		Vector readVector(const std::string& message);
+
 		std::string format(const Point& point);
 
 		std::istream& input;
@@ -43,9 +46,6 @@ namespace geometry {
 		PointsMenu(std::istream& input = std::cin, bool showPrompts = true);
 		virtual ~PointsMenu();
 		virtual void show();
-
-	protected:
-		Point readPoint(const std::string& message);
 	};
 
 	class VectorsMenu : public Menu {
@@ -53,9 +53,6 @@ namespace geometry {
 		VectorsMenu(std::istream& input = std::cin, bool showPrompts = true);
 		virtual ~VectorsMenu();
 		virtual void show();
-
-	protected:
-		Vector readVector(const std::string& message);
 	};
 };
 

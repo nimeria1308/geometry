@@ -16,21 +16,6 @@ VectorsMenu::~VectorsMenu()
 {
 }
 
-Vector VectorsMenu::readVector(const string & message)
-{
-	double x, y, z;
-
-	if (showPrompts) {
-		cout << message << endl;
-	}
-
-	x = readNumber("Enter X coordinate");
-	y = readNumber("Enter Y coordinate");
-	z = readNumber("Enter Z coordinate");
-
-	return Vector(x, y, z);
-}
-
 void VectorsMenu::show()
 {
 	// main menu for vectors

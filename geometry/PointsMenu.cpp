@@ -16,21 +16,6 @@ PointsMenu::~PointsMenu()
 {
 }
 
-Point PointsMenu::readPoint(const string& message)
-{
-	double x, y, z;
-
-	if (showPrompts) {
-		cout << message << endl;
-	}
-
-	x = readNumber("Enter X coordinate");
-	y = readNumber("Enter Y coordinate");
-	z = readNumber("Enter Z coordinate");
-
-	return Point(x, y, z);
-}
-
 void PointsMenu::show()
 {
 	// main menu for points
