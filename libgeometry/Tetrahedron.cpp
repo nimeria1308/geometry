@@ -15,13 +15,10 @@ Tetrahedron::Tetrahedron(const Point& a, const Point& b, const Point& c, const P
 {
     
         // Check for equal point exception.
-        if (!(a == b || a == c || a == d || b == c || b == d || c == d))
+        if (a == b || a == c || a == d || b == c || b == d || c == d)
         {
             throw EqualPointException("Tetrahedron can't be initialized, there are points that are equal.");
         }
-
-
-
 
     edge = Vector(a, b);
     edge2 = Vector(a, c);
