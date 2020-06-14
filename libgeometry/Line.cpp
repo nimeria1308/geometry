@@ -1,5 +1,7 @@
 #include "Line.h"
-#include <cmath>
+
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 using namespace geometry;
 using namespace std;
