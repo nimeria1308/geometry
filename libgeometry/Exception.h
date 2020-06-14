@@ -1,4 +1,4 @@
-#ifndef GEOMETRY_EXCEPITON_H
+#ifndef GEOMETRY_EXCEPTION_H
 #define GEOMETRY_EXCEPTION_H
 
 #include <string>
