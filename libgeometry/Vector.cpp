@@ -77,9 +77,9 @@ bool Vector::isOrthogonal(const Vector& other) const
     if (isZero() || other.isZero()) {
         throw VectorLengthException();
     }
-      if ((this->getX() * other.getX() + this->getY() * other.getY() + this->getZ() * other.getZ()) == 0)
-        return true;
-    else return false;
+
+    // Two vectors are perpendicular when their dot product equals to 0
+    return (*this * other) == 0;
 }
 
 
@@ -100,10 +100,10 @@ Vector Vector::operator*(double a) const
     return Vector(x * a, y * a, z * a);
 }
 
-// scalar product
+// scalar(dot) product
 double Vector::operator*(const Vector& other) const
 {
-    return this->getX() * other.getX() + this->getY() * other.getY() + this->getZ() * other.getZ();
+    return (x * other.x) + (y * other.y) + (z * other.z);
 }
 
 // vector product
