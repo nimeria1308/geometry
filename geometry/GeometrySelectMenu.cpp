@@ -69,6 +69,13 @@ void GeometrySelectMenu::show()
 			break;
 		}
 
+		case 5:
+		{
+			TrianglesMenu menu(input, showPrompts);
+			menu.show();
+			break;
+		}
+
 		default:
 			cout << "Invalid operation " << op << endl;
 			continue;

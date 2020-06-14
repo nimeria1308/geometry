@@ -127,6 +127,28 @@ Segment Menu::readSegment(const string& message)
 	}
 }
 
+Triangle Menu::readTriangle(const string& message)
+{
+	Point p1, p2, p3;
+
+	while (true) {
+		try {
+			if (showPrompts) {
+				cout << message << endl;
+			}
+
+			p1 = readPoint("Enter coordinates of the first point");
+			p2 = readPoint("Enter coordinates of the second point");
+			p3 = readPoint("Enter coordinates of the third point");
+
+			return Triangle(p1, p2, p3);
+		}
+		catch (const GeometryException& ex) {
+			cout << "Could not create triangle: " << ex.what() << endl;
+		}
+	}
+}
+
 string Menu::format(const Point& point)
 {
 	ostringstream os;
