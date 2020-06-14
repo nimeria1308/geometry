@@ -7,6 +7,7 @@ using namespace std;
 
 // exception
 VectorLengthException::VectorLengthException()
+    : GeometryException("Vector length cannot be zero")
 {
 }
 
