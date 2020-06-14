@@ -41,6 +41,13 @@ void GeometrySelectMenu::show()
 		case 0:
 			return;
 
+		case 1:
+		{
+			PointsMenu menu(input, showPrompts);
+			menu.show();
+			break;
+		}
+
 		case 2:
 		{
 			VectorsMenu menu(input, showPrompts);

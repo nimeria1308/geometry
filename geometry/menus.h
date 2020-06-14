@@ -38,6 +38,16 @@ namespace geometry {
 		virtual void show();
 	};
 
+	class PointsMenu : public Menu {
+	public:
+		PointsMenu(std::istream& input = std::cin, bool showPrompts = true);
+		virtual ~PointsMenu();
+		virtual void show();
+
+	protected:
+		Point readPoint(const std::string& message);
+	};
+
 	class VectorsMenu : public Menu {
 	public:
 		VectorsMenu(std::istream& input = std::cin, bool showPrompts = true);
