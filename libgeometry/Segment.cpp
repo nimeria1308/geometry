@@ -18,20 +18,9 @@ Segment::Segment(const Point& point1, const Point& point2)
 // methods
 double Segment::length() const
 {
-
-    auto d = 0.0;
-
-    d = sqrt(pow((endPoint.getX() - x), 2) + pow((endPoint.getY() - y ), 2) + pow((endPoint.getZ() - z), 2));
-
-    if (d <= 0.0)
-    {
-        std::cerr << "The number is not positive, or it is exaclty ZERO!" << std::endl;
-    }
-
-    else if (d > 0.0)
-    {
-        return d;
-    }
+    // Create vectors from the start point (using this, as Segment inherits from Point via Line and Vector).
+    // and from the end point. Subtract them and get the length of the newly formed vector.
+    return (Vector(*this) - Vector(endPoint)).length();
 }
 
 Point Segment::middle() const
