@@ -106,8 +106,8 @@ namespace geometry
                 Line l1(Point(), Vector(4, -3, 5));
                 Line l2(Point(), Vector(9, 7, -10));
 
-                Assert::AreEqual(1.903, 0.001, l1.angle(l2));
-                Assert::AreEqual(1.903, 0.001, l2.angle(l1));
+                Assert::AreEqual(1.903, l1.angle(l2), 0.001);
+                Assert::AreEqual(1.903, l2.angle(l1), 0.001);
             }
 
             TEST_METHOD(TestPointOnLine)
