@@ -75,6 +75,32 @@ Vector Menu::readVector(const string& message)
 	return Vector(x, y, z);
 }
 
+Line Menu::readLine(const string& message)
+{
+	double x1, x2, y1, y2, z1, z2;
+
+	while (true) {
+		try {
+			if (showPrompts) {
+				cout << message << endl;
+			}
+
+			x1 = readNumber("Enter X coordinate of the first point");
+			y1 = readNumber("Enter Y coordinate of the first point");
+			z1 = readNumber("Enter Z coordinate of the first point");
+
+			x2 = readNumber("Enter X coordinate of the second point");
+			y2 = readNumber("Enter Y coordinate of the second point");
+			z2 = readNumber("Enter Z coordinate of the second point");
+
+			return Line(Point(x1, y1, z1), Point(x2, y2, z2));
+		}
+		catch (const GeometryException&) {
+			cout << "Could not create line: the points overlap" << endl;
+		}
+	}
+}
+
 string Menu::format(const Point& point)
 {
 	ostringstream os;
