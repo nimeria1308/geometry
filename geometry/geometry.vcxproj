@@ -170,6 +170,11 @@
   <ItemGroup>
     <ClInclude Include="menus.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="segments.txt" />
+    <Text Include="triangles.txt" />
+    <Text Include="vectors.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

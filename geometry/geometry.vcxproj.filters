@@ -51,4 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="segments.txt" />
+    <Text Include="triangles.txt" />
+    <Text Include="vectors.txt" />
+  </ItemGroup>
 </Project>
