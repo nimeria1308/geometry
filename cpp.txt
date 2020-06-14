@@ -1,0 +1,143 @@
+#include <map>
+#include <vector>
+#include <cmath>
+#include <iostream>
+#include <stdexcept>
+
+struct Point 
+{ 
+    float x, y, z; 
+    Point(float px=0, float py=0, float pz=0) : x(px), y(py), z(pz) {}
+};
+
+typedef std::vector<Point> PointVector;
+typedef std::map<int, PointVector> MapPointVector;
+
+float CalculateDistance(const Point& p1, const Point& p2)
+{
+    float diffY = p1.y - p2.y;
+    float diffX = p1.x - p2.x;
+    float diffZ = p1.z - p2.z;
+    
+    return sqrt((diffY * diffY) + (diffX * diffX) + (diffZ * diffZ));
+}
+
+void DisplayDistances(const MapPointVector& mp, int v1, int v2)
+{
+    MapPointVector::const_iterator it1 = mp.find(v1);
+    MapPointVector::const_iterator it2 = mp.find(v2);
+    if (it1 != mp.end() && it2 != mp.end())
+    {
+        const PointVector& vec1 = it1->second;
+        const PointVector& vec2 = it2->second;
+        for (size_t i = 0; i < vec1.size(); ++i)
+        {
+            for (size_t j = 0; j < vec2.size(); ++j)
+                std::cout << CalculateDistance(vec1[i], vec2[j]) << "\n";
+        }
+    }
+}
+
+float GetLength(const Point& p1) 
+{
+    return sqrt((p1.x * p1.x) + (p1.y * p1.y) + (p1.z * p1.z));
+}
+
+void DisplayLength(const MapPointVector& mp, int v1)
+{
+    MapPointVector::const_iterator it1 = mp.find(v1);
+    const PointVector& vec1 = it1->second;
+    for (size_t i = 0; i < vec1.size(); ++i)
+    {   
+        try {
+	        GetLength(vec1[i]);
+            std::cout << "length: " <<  GetLength(vec1[i]) << "\n";
+        } 
+        catch (const std::length_error& le) {
+           std::cerr << "Length error: " << le.what() << '\n';
+        }
+    }
+}
+
+void DisplayDirection(const MapPointVector& mp, int v1)
+{
+    MapPointVector::const_iterator it1 = mp.find(v1);
+    const PointVector& vec1 = it1->second;
+    for (size_t i = 0; i < vec1.size(); ++i)
+    {
+        std::cout << "direction: " <<  (vec1[i].x /  GetLength(vec1[i])) << ',' << (vec1[i].y / GetLength(vec1[i])) << ',' << (vec1[i].z / GetLength(vec1[i]))  << "\n";
+    }
+}
+
+
+bool IsZero(const Point& p1) {
+    return p1.x == 0 &&  p1.y == 0 && p1.z == 0;
+}
+
+void DisplayIsZero(const MapPointVector& mp, int v1) {
+    MapPointVector::const_iterator it1 = mp.find(v1);
+    const PointVector& vec1 = it1->second;
+    for (size_t i = 0; i < vec1.size(); ++i)
+    {
+        std::cout << "isZero: " <<  IsZero(vec1[i])  << "\n";
+    }
+}
+
+
+bool IsParalel(const Point& p1, const Point& p2) {
+    return p1.x / p2.x == p1.y / p2.y && p1.z / p2.z == p1.x / p2.x;
+}
+
+void DisplayIsParalel(const MapPointVector& mp, int v1, int v2) {
+    MapPointVector::const_iterator it1 = mp.find(v1);
+    MapPointVector::const_iterator it2 = mp.find(v2);
+    const PointVector& vec1 = it1->second;
+    const PointVector& vec2 = it2->second;
+    for (size_t i = 0; i < vec1.size(); ++i)
+    {
+        std::cout << "IsParalel: " <<  IsParalel(vec1[1], vec2[1])  << "\n";
+    }
+}
+
+
+bool IsPerpendicular(const Point& p1, const Point& p2) {
+    return p1.x * p2.x + p1.y * p2.y + p1.z * p2.z == 0;
+}
+
+void DisplayIsPerpendicular(const MapPointVector& mp, int v1, int v2) {
+    MapPointVector::const_iterator it1 = mp.find(v1);
+    MapPointVector::const_iterator it2 = mp.find(v2);
+    const PointVector& vec1 = it1->second;
+    const PointVector& vec2 = it2->second;
+    for (size_t i = 0; i < vec1.size(); ++i)
+    {
+        std::cout << "isPerpendicular: " <<  IsPerpendicular(vec1[i], vec2[i])  << "\n";
+    }
+}
+
+int main()
+{
+    MapPointVector mp;
+    PointVector v1;
+    PointVector v2;
+    // assume v1 and v2 have been filled with info
+    v1.push_back(Point(0, 0, 0));
+    // v1.push_back(Point(0, 0, 0));
+    // v1.push_back(Point(10, 20, 30));
+    // v1.push_back(Point(5, 10, 6));
+    // v1.push_back(Point(0, 0, 0));
+
+    // v2.push_back(Point(11, 21, 19));
+    // v2.push_back(Point(13, 20, 6));
+    // v2.push_back(Point(5, 8, 3));
+    v2.push_back(Point(1, 1, 1));
+
+    mp[1] = v1;
+    mp[2] = v2;
+    DisplayDistances(mp, 1, 2);
+    DisplayLength(mp, 1);
+    DisplayDirection(mp, 1);
+    DisplayIsPerpendicular(mp, 1, 2);
+    DisplayIsZero(mp, 1);
+    DisplayIsParalel(mp, 1, 2);
+}
