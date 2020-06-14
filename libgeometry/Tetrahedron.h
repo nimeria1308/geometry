@@ -5,7 +5,7 @@
 #include <iostream>
 
 #include "Element.h"
-#include "Point.h"
+#include"Triangle.h"
 
 namespace geometry
 {
@@ -13,13 +13,13 @@ namespace geometry
     public:
         // ctr/dtr
         Tetrahedron();
-        Tetrahedron(const Point& a, const Point& b, const Point& c, const Point &d);
+        Tetrahedron(const Point& a, const Point& b, const Point& c, const Point& d);
         virtual ~Tetrahedron() { }
 
         // methods
         // dali e pravilen, t.e. vsichki ugli sa ravni,
         // t.e. vsichki lica sa ravnostranni triugulnici
-        bool isRegular() const;
+        bool isRegular();
 
         // dali e ortogonalen, t.e. vseki dva sreshtupolojni ruba
         // sa perpendikuliarni
@@ -42,6 +42,13 @@ namespace geometry
         Point b;
         Point c;
         Point d;
+
+        Vector edge;
+        Vector edge2;
+        Vector edge3;
+        Vector edge4;
+        Vector edge5;
+        Vector edge6;
     };
 }
 

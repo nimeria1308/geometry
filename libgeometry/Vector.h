@@ -45,6 +45,9 @@ namespace geometry
         // scalar triple (mixed) product
         double operator()(const Vector& a, const Vector& b);
 
+        //namira unit vector
+       /*Vector  nomVec(const Vector&) const;*/
+
         // nqma nujda ot getters: unasledqvame ot Point
     };
 }
