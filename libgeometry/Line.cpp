@@ -102,7 +102,7 @@ bool Line::operator!=(const Line& other) const
 // If two lines are perpendicular.
 bool Line::operator|(const Line& other) const
 {
-    return (angle(other) == M_PI/2);
+    return directionVector.isOrthogonal(other.directionVector);
 }
 
 bool operator+(const Point& point, const Line& line)
