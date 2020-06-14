@@ -30,6 +30,11 @@ double Menu::readNumber(const string& prompt)
 			return value;
 		}
 
+		if (input.eof()) {
+			cout << "Reached end of file unexpectedly!" << endl;
+			exit(1);
+		}
+
 		if (input.fail()) {
 			cout << "Invalid value" << endl;
 
