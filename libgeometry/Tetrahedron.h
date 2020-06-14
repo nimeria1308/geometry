@@ -5,7 +5,9 @@
 #include <iostream>
 
 #include "Element.h"
-#include"Triangle.h"
+#include "Triangle.h"
+#include "Vector.h"
+#include "Exception.h"
 
 namespace geometry
 {
