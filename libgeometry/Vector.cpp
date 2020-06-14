@@ -68,6 +68,7 @@ bool Vector::isParallel(const Vector& other) const
         throw VectorLengthException();
     }
 
+    // For two vectors, x and y to be parallel, x=cy, for some real number c.
     // TODO
 
     return true;
@@ -79,8 +80,8 @@ bool Vector::isOrthogonal(const Vector& other) const
         throw VectorLengthException();
     }
 
-    // TODO
-    return true;
+    // Two vectors are perpendicular when their dot product equals to 0
+    return (*this * other) == 0;
 }
 
 // operators
@@ -99,11 +100,10 @@ Vector Vector::operator*(double a) const
     return Vector(x * a, y * a, z * a);
 }
 
-// scalar product
+// scalar (dot) product
 double Vector::operator*(const Vector& other) const
 {
-    // TODO
-    return 0;
+    return (x * other.x) + (y * other.y) + (z * other.z);
 }
 
 // vector product

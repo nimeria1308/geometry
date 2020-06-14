@@ -18,8 +18,9 @@ Segment::Segment(const Point& point1, const Point& point2)
 // methods
 double Segment::length() const
 {
-    // todo
-    return 0;
+    // Create vectors from the start point (using this, as Segment inherits from Point via Line and Vector).
+    // and from the end point. Subtract them and get the length of the newly formed vector.
+    return (Vector(*this) - Vector(endPoint)).length();
 }
 
 Point Segment::middle() const
@@ -35,11 +36,42 @@ bool Segment::operator==(const Segment& other) const
         && end() == other.end();
 }
 
-// proverqva dali leji na otsechkata
+// proverqva dali leji na otsechkata --- !!!CHECK IF CORRECT!!!
+
 bool Segment::operator==(const Point& point) const
 {
-    // TODO
-    return true;
+
+    if (Line(start(),endPoint) + point)
+    {
+        if (this->x < endPoint.getX())
+        {
+            if (this->x < x < endPoint.getX() == true)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+
+        else if (this->x > endPoint.getX())
+        {
+            if (endPoint.getX() < x < this->x)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+    }
+
+    return false;
+
 }
 
 
