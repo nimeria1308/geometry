@@ -151,12 +151,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="GeometrySelectMenu.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="VectorsMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\libgeometry\libgeometry.vcxproj">
       <Project>{e1d68b72-06c7-42fe-a8ad-f0f392cd1707}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="menus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
