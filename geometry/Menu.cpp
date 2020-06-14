@@ -149,6 +149,29 @@ Triangle Menu::readTriangle(const string& message)
 	}
 }
 
+Tetrahedron Menu::readTetrahedron(const string& message)
+{
+	Point p1, p2, p3, p4;
+
+	while (true) {
+		try {
+			if (showPrompts) {
+				cout << message << endl;
+			}
+
+			p1 = readPoint("Enter coordinates of the first point");
+			p2 = readPoint("Enter coordinates of the second point");
+			p3 = readPoint("Enter coordinates of the third point");
+			p4 = readPoint("Enter coordinates of the fourth point");
+
+			return Tetrahedron(p1, p2, p3, p4);
+		}
+		catch (const GeometryException& ex) {
+			cout << "Could not create triangle: " << ex.what() << endl;
+		}
+	}
+}
+
 string Menu::format(const Point& point)
 {
 	ostringstream os;

@@ -8,6 +8,7 @@
 #include "Line.h"
 #include "Segment.h"
 #include "Triangle.h"
+#include "Tetrahedron.h"
 
 namespace geometry {
 
@@ -26,6 +27,7 @@ namespace geometry {
 		Line readLine(const std::string& message);
 		Segment readSegment(const std::string& message);
 		Triangle readTriangle(const std::string& message);
+		Tetrahedron readTetrahedron(const std::string& message);
 
 		std::string format(const Point& point);
 
@@ -79,6 +81,13 @@ namespace geometry {
 	public:
 		TrianglesMenu(std::istream& input = std::cin, bool showPrompts = true);
 		virtual ~TrianglesMenu();
+		virtual void show();
+	};
+
+	class TetrahedronsMenu : public Menu {
+	public:
+		TetrahedronsMenu(std::istream& input = std::cin, bool showPrompts = true);
+		virtual ~TetrahedronsMenu();
 		virtual void show();
 	};
 };

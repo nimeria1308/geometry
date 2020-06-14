@@ -76,6 +76,13 @@ void GeometrySelectMenu::show()
 			break;
 		}
 
+		case 6:
+		{
+			TetrahedronsMenu menu(input, showPrompts);
+			menu.show();
+			break;
+		}
+
 		default:
 			cout << "Invalid operation " << op << endl;
 			continue;
