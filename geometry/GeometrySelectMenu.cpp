@@ -28,14 +28,14 @@ void GeometrySelectMenu::show()
 			cout << "[ 0]: Exit menu" << endl;
 			cout << "[ 1]: Points" << endl;
 			cout << "[ 2]: Vectors" << endl;
-			cout << "[ 4]: Lines" << endl;
-			cout << "[ 5]: Segments" << endl;
-			cout << "[ 6]: Triangles" << endl;
-			cout << "[ 7]: Tetrahedrons" << endl;
+			cout << "[ 3]: Lines" << endl;
+			cout << "[ 4]: Segments" << endl;
+			cout << "[ 5]: Triangles" << endl;
+			cout << "[ 6]: Tetrahedrons" << endl;
 			cout << endl;
 		}
 
-		int op = (int)readNumber("Select an operation (0-7)");
+		int op = (int)readNumber("Select an operation (0-6)");
 
 		switch (op) {
 		case 0:
