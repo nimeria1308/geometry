@@ -18,6 +18,7 @@ const char* GeometryException::what() const throw()
 }
 
 EqualPointException::EqualPointException()
+    : GeometryException("Two or more points overlap")
 {
 }
 
