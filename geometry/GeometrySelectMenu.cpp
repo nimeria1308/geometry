@@ -62,6 +62,13 @@ void GeometrySelectMenu::show()
 			break;
 		}
 
+		case 4:
+		{
+			SegmentsMenu menu(input, showPrompts);
+			menu.show();
+			break;
+		}
+
 		default:
 			cout << "Invalid operation " << op << endl;
 			continue;
